@@ -1,6 +1,10 @@
 'use strict'
 
 import React, { PureComponent } from 'react'
+import Search from './components/search/search'
+import UserInfo from './components/userinfo/user-info'
+import Actions from './components/actions/actions'
+import Repos from './components/repos/repos'
 
 import './css/style.css'
 
@@ -36,36 +40,35 @@ class App extends PureComponent {
       //   <this.state.Component>{this.state.title}</this.state.Component>
       // </div>
       <div className='app'>
-        <div className='search'>
-          <input
-            type='search'
-            placeholder='Digite o nome do usuário'/>
-        </div>
-        <div className='user-info'>
-          <img src='https://avatars3.githubusercontent.com/u/10014084?v=4' alt='Foto do Perfil'/>
-          <h1><a href='https://api.github.com/users/marquinhusgoncalves'>Marquinhus Gonçalves</a></h1>
-          <ul className='repos-info'>
-            <li>- Repositórios: 92</li>
-            <li>- Seguidores: 55</li>
-            <li>- Seguindo: 159</li>
-          </ul>
-          <div className='actions'>
-            <button>Ver repositórios</button>
-            <button>Ver favoritos</button>
-          </div>
-          <div className='repos'>
-            <h2>Repositórios:</h2>
-            <ul>
-              <li><a href='#'> Nome do repositório</a></li>
-            </ul>
-          </div>
-          <div className='starred'>
-            <h2>Favoritos:</h2>
-            <ul>
-              <li><a href='#'>Nome do repositório</a></li>
-            </ul>
-          </div>
-        </div>
+        <Search />
+        <UserInfo />
+        <Actions />
+        <Repos
+          className='repos'
+          title='Repositórios'
+          repos={[{
+            link: '#',
+            name: 'Nome 1'
+          },
+          {
+            link: '#',
+            name: 'Nome 2'
+          }
+          ]}
+        />
+        <Repos
+          className='starred'
+          title='Favoritos'
+          repos={[{
+            link: '#',
+            name: 'Nome 1'
+          },
+          {
+            link: '#',
+            name: 'Nome 2'
+          }
+          ]}
+        />
       </div>
     )
   }
