@@ -58,8 +58,12 @@ class App extends PureComponent {
             repos: result.public_repos,
             followers: result.followers,
             following: result.following
-          },
+          }
         })
+      })
+      ajax().get(`https://api.github.com/users/${value}/repos`)
+      .then((result) => {
+        this.setState({repos: result})
       })
     }
   }
