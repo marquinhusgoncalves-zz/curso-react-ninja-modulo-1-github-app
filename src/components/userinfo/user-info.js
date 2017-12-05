@@ -1,9 +1,9 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 
 const UserInfo = ({userinfo}) => (
   <div className='user-info'>
-    <img src='https://avatars3.githubusercontent.com/u/10014084?v=4' alt='Foto do Perfil' />
-    <h1 className='user-name'><a href={userinfo.link}>{userinfo.username}</a></h1>
+    <img src={userinfo.photo} alt='Foto do Perfil' />
+    <h1 className='user-name'><a href={`https://github.com/${userinfo.username}`}>{userinfo.username}</a></h1>
     <ul className='repos-info'>
       <li>Repositórios: {userinfo.repos}</li>
       <li>Seguidores: {userinfo.followers}</li>
@@ -11,5 +11,16 @@ const UserInfo = ({userinfo}) => (
     </ul>
   </div>
 )
+
+UserInfo.proptypes = {
+  userinfo: PropTypes.shape({
+    username: PropTypes.string.isRequired,
+    photo: PropTypes.string.isRequired,
+    login: PropTypes.string.isRequired,
+    repos: PropTypes.number.isRequired,
+    followers: PropTypes.number.isRequired,
+    following: PropTypes.number.isRequired
+  })
+}
 
 export default UserInfo

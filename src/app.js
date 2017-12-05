@@ -13,7 +13,8 @@ class App extends PureComponent {
       Component: 'div',
       userinfo: {
         username: 'Marquinhus Gonçalves',
-        link: 'https://api.github.com/users/marquinhusgoncalves',
+        photo: 'https://avatars3.githubusercontent.com/u/10014084?v=4',
+        login: 'marquinhusgoncalves',
         repos: 89,
         followers: 10,
         following: 30
