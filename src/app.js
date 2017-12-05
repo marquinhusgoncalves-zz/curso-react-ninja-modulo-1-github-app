@@ -1,10 +1,7 @@
 'use strict'
 
 import React, { PureComponent } from 'react'
-import Search from './components/search/search'
-import UserInfo from './components/userinfo/user-info'
-import Actions from './components/actions/actions'
-import Repos from './components/repos/repos'
+import AppContent from './components/appcontent/app-content'
 
 import './css/style.css'
 
@@ -13,7 +10,22 @@ class App extends PureComponent {
     super()
     this.state = {
       title: '...',
-      Component: 'div'
+      Component: 'div',
+      userinfo: {
+        username: 'Marquinhus Gonçalves',
+        link: 'https://api.github.com/users/marquinhusgoncalves',
+        repos: 89,
+        followers: 10,
+        following: 30
+      },
+      repos: [{
+        name: 'Repo',
+        link: '#'
+      }],
+      starred: [{
+        name: 'Repo',
+        link: '#'
+      }]
     }
   }
 
@@ -35,42 +47,11 @@ class App extends PureComponent {
   }
 
   render () {
-    return (
-      // <div>
-      //   <this.state.Component>{this.state.title}</this.state.Component>
-      // </div>
-      <div className='app'>
-        <Search />
-        <UserInfo />
-        <Actions />
-        <Repos
-          className='repos'
-          title='Repositórios'
-          repos={[{
-            link: '#',
-            name: 'Nome 1'
-          },
-          {
-            link: '#',
-            name: 'Nome 2'
-          }
-          ]}
-        />
-        <Repos
-          className='starred'
-          title='Favoritos'
-          repos={[{
-            link: '#',
-            name: 'Nome 1'
-          },
-          {
-            link: '#',
-            name: 'Nome 2'
-          }
-          ]}
-        />
-      </div>
-    )
+    return <AppContent
+      userinfo={this.state.userinfo}
+      repos={this.state.repos}
+      starred={this.state.starred}
+    />
   }
 }
 

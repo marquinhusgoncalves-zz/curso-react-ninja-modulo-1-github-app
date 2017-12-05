@@ -51,6 +51,7 @@ input[type="search"] {
   font-size: 25px;
   text-transform: uppercase;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .repos h2,
