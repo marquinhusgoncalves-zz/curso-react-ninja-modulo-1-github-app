@@ -2,6 +2,7 @@
 
 import React, { PureComponent } from 'react'
 import AppContent from './components/appcontent/app-content'
+import ajax from '@fdaciuk/ajax'
 
 import './css/style.css'
 
@@ -11,22 +12,17 @@ class App extends PureComponent {
     this.state = {
       title: '...',
       Component: 'div',
-      userinfo: {
-        username: 'Marquinhus Gonçalves',
-        photo: 'https://avatars3.githubusercontent.com/u/10014084?v=4',
-        login: 'marquinhusgoncalves',
-        repos: 89,
-        followers: 10,
-        following: 30
-      },
-      repos: [{
-        name: 'Repo',
-        link: '#'
-      }],
-      starred: [{
-        name: 'Repo',
-        link: '#'
-      }]
+      // repos: [{
+      //   name: 'Repo',
+      //   link: '#'
+      // }],
+      // starred: [{
+      //   name: 'Repo',
+      //   link: '#'
+      // }]
+      userinfo: null,
+      repos: [],
+      starred: []
     }
   }
 
@@ -47,11 +43,33 @@ class App extends PureComponent {
     })
   }
 
+  handleSearch (e) {
+    const value = e.target.value
+    const keyCode = e.which || e.keyCode
+    const ENTER = 13
+    if (keyCode === ENTER) {
+      ajax().get(`https://api.github.com/users/${value}`)
+      .then((result) => {
+        this.setState({
+          userinfo: {
+            username: result.name,
+            photo: result.avatar_url,
+            login: result.login,
+            repos: result.public_repos,
+            followers: result.followers,
+            following: result.following
+          },
+        })
+      })
+    }
+  }
+
   render () {
     return <AppContent
       userinfo={this.state.userinfo}
       repos={this.state.repos}
       starred={this.state.starred}
+      handleSearch={(e) => this.handleSearch(e)}
     />
   }
 }
