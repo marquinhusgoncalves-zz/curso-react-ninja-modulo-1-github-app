@@ -61,12 +61,15 @@ class App extends PureComponent {
           }
         })
       })
-      ajax().get(`https://api.github.com/users/${value}/repos`)
-      .then((result) => {
-        this.setState({repos: result})
-      })
     }
   }
+
+  // getRepos () {
+  //   ajax().get(`https://api.github.com/users/${value}/repos`)
+  //   .then((result) => {
+  //     this.setState({ repos: result })
+  //   })
+  // }
 
   render () {
     return <AppContent
@@ -74,6 +77,8 @@ class App extends PureComponent {
       repos={this.state.repos}
       starred={this.state.starred}
       handleSearch={(e) => this.handleSearch(e)}
+      getRepos={() => this.getRepos}
+      getStarred={() => this.getStarred}
     />
   }
 }
