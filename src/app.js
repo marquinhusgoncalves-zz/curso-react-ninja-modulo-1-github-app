@@ -12,14 +12,6 @@ class App extends PureComponent {
     this.state = {
       title: '...',
       Component: 'div',
-      // repos: [{
-      //   name: 'Repo',
-      //   link: '#'
-      // }],
-      // starred: [{
-      //   name: 'Repo',
-      //   link: '#'
-      // }]
       userinfo: null,
       repos: [],
       starred: []
@@ -64,12 +56,21 @@ class App extends PureComponent {
     }
   }
 
-  // getRepos () {
-  //   ajax().get(`https://api.github.com/users/${value}/repos`)
-  //   .then((result) => {
-  //     this.setState({ repos: result })
-  //   })
-  // }
+  getRepos (type) {
+    return (e) => {
+      ajax().get(`https://api.github.com/users/fdaciuk/${type}`)
+      .then((result) => {
+        this.setState({
+          [type]: result.map((repo) => {
+            return {
+              name: repo.name,
+              link: repo.html_url
+            }
+          })
+        })
+      })
+    }
+  }
 
   render () {
     return <AppContent
@@ -77,8 +78,8 @@ class App extends PureComponent {
       repos={this.state.repos}
       starred={this.state.starred}
       handleSearch={(e) => this.handleSearch(e)}
-      getRepos={() => this.getRepos}
-      getStarred={() => this.getStarred}
+      getRepos={this.getRepos('repos')}
+      getStarred={this.getRepos('starred')}
     />
   }
 }
