@@ -14,7 +14,8 @@ class App extends PureComponent {
       Component: 'div',
       userinfo: null,
       repos: [],
-      starred: []
+      starred: [],
+      isFetching: false
     }
   }
 
@@ -47,10 +48,13 @@ class App extends PureComponent {
     const ENTER = 13
     // Evitar erro com o event.target
     // e.persist()
-    const target = e.target
+    // const target = e.target
 
     if (keyCode === ENTER) {
-      target.disabled = true
+      // target.disabled = true
+
+      this.setState({ isFetching: true })
+
       ajax().get(this.getGitHubApiUrl(username))
       .then((result) => {
         this.setState({
@@ -67,7 +71,8 @@ class App extends PureComponent {
         })
       })
       .always(() => {
-        target.disabled = false
+        // target.disabled = false
+        this.setState({ isFetching: false })
       })
     }
   }
@@ -94,6 +99,7 @@ class App extends PureComponent {
       userinfo={this.state.userinfo}
       repos={this.state.repos}
       starred={this.state.starred}
+      isFetching={this.state.isFetching}
       handleSearch={(e) => this.handleSearch(e)}
       getRepos={this.getRepos('repos')}
       getStarred={this.getRepos('starred')}
