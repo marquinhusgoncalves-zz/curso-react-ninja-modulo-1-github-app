@@ -45,7 +45,12 @@ class App extends PureComponent {
     const username = e.target.value
     const keyCode = e.which || e.keyCode
     const ENTER = 13
+    // Evitar erro com o event.target
+    // e.persist()
+    const target = e.target
+
     if (keyCode === ENTER) {
+      target.disabled = true
       ajax().get(this.getGitHubApiUrl(username))
       .then((result) => {
         this.setState({
@@ -60,6 +65,9 @@ class App extends PureComponent {
           repos: [],
           starred: []
         })
+      })
+      .always(() => {
+        target.disabled = false
       })
     }
   }
