@@ -1,0 +1,12 @@
+@charset 'utf-8';
+
+.search {
+  margin-bottom: 15px;
+}
+
+input[type="search"] {
+  width: 100%;
+  -webkit-appearance: none;
+  font-size: 35px;
+  padding-left: 5px;
+}
