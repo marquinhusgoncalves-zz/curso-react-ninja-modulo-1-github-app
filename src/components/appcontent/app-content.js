@@ -3,6 +3,7 @@ import Search from '../search'
 import UserInfo from '../userinfo'
 import Actions from '../actions'
 import Repos from '../repos'
+import style from './app-content.css'
 
 const AppContent = ({
   userinfo,
@@ -13,18 +14,18 @@ const AppContent = ({
   getRepos,
   getStarred
 }) => (
-  <div className='app'>
+    <div className={style.app}>
     <Search isDisabled={isFetching} handleSearch={handleSearch} />
     {!!userinfo && <UserInfo userinfo={userinfo} />}
     {isFetching && <div> Carregando...</div>}
     {!!userinfo && <Actions getRepos={getRepos} getStarred={getStarred} />}
     {!!repos.length && <Repos
-      className='repos'
+      className={style.repos}
       title='Repositórios'
       repos={repos}
     />}
     {!!repos.length && <Repos
-      className='starred'
+      className={style.starred}
       title='Favoritos'
       repos={starred}
     />}

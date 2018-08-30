@@ -1,0 +1,14 @@
+.userInfo img {
+  float: left;
+}
+
+.userName {
+  float: left;
+  font-size: 40px;
+  margin: 0 0 0 15px;
+}
+
+.userInfo .reposInfo {
+  float: left;
+  margin-left: 15px;
+}

@@ -1,10 +1,11 @@
 import React, {PropTypes} from 'react'
+import style from './userinfo.css'
 
 const UserInfo = ({userinfo}) => (
-  <div className='user-info'>
+  <div className={style.userInfo}>
     <img src={userinfo.photo} alt='Foto do Perfil' />
-    <h1 className='user-name'><a href={`https://github.com/${userinfo.login}`}>{userinfo.username}</a></h1>
-    <ul className='repos-info'>
+    <h1 className={style.userName}><a href={`https://github.com/${userinfo.login}`}>{userinfo.username}</a></h1>
+    <ul className={style.reposInfo}>
       <li>Repositórios: {userinfo.repos}</li>
       <li>Seguidores: {userinfo.followers}</li>
       <li>Seguindo: {userinfo.following}</li>

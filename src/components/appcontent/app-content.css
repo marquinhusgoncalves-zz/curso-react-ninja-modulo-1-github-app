@@ -1,0 +1,20 @@
+.app {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.repos h2,
+.starred h2 {
+  font-size: 30px;
+}
+
+.repos li,
+.starred li {
+  margin-bottom: 5px;
+  border-bottom: 1px solid #ccc;
+}
+
+.repos a,
+.starred a {
+  text-decoration: none;
+}

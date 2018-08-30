@@ -1,7 +1,8 @@
 import React, {PropTypes} from 'react'
+import style from './actions.css'
 
 const Action = ({ getRepos, getStarred }) => (
-  <div className='actions'>
+  <div className={style.actions}>
     <button onClick={getRepos}>Ver repositórios</button>
     <button onClick={getStarred}>Ver favoritos</button>
   </div>
