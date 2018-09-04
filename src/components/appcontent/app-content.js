@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react'
-import Search from '../search'
-import UserInfo from '../userinfo'
-import Actions from '../actions'
-import Repos from '../repos'
+import Search from 'components/search'
+import UserInfo from 'components/userinfo'
+import Actions from 'components/actions'
+import Repos from 'components/repos'
 import style from './app-content.css'
 
 const AppContent = ({
