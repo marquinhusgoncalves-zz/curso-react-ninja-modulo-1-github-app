@@ -7,6 +7,5 @@ storiesOf('Actions', module)
     <Actions
       getRepos={action('Get Repos')}
       getStarred={action('Get Starred')}
-    >
-    </Actions>
+    />
   ))
