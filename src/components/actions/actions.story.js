@@ -1,8 +1,12 @@
 import React from 'react'
-// import {storiesOf} from '@kadira/storybook'
-import { storiesOf } from '@storybook/react'
+import { storiesOf, action } from '@storybook/react'
+import Actions from './index'
 
-storiesOf('Div', module)
+storiesOf('Actions', module)
   .add('first story', () => (
-    <div>Hello</div>
+    <Actions
+      getRepos={action('Get Repos')}
+      getStarred={action('Get Starred')}
+    >
+    </Actions>
   ))
