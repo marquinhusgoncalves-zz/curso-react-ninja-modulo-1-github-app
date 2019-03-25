@@ -17,7 +17,8 @@ module.exports = {
 
   output: {
     path: paths.dist,
-    filename: '[name]-[chunkhash].js'
+    filename: '[name]-[chunkhash].js',
+    publicPath: '/'
   },
 
   htmlPluginConfig: {
@@ -58,7 +59,7 @@ module.exports = {
   cssLoader: {
     test: /\.css$/,
     include: paths.src,
-    use: ['style-loader', 'css-loader?modules']
+    use: ['style-loader', 'css-loader']
   },
 
   fileLoader: {

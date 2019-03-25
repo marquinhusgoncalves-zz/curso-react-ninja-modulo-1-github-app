@@ -14,7 +14,7 @@ const AppContent = ({
   getRepos,
   getStarred
 }) => (
-    <div className={style.app}>
+  <div className={style.app}>
     <Search isDisabled={isFetching} handleSearch={handleSearch} />
     {!!userinfo && <UserInfo userinfo={userinfo} />}
     {isFetching && <div> Carregando...</div>}
