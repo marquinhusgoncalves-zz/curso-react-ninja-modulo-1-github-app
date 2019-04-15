@@ -13,11 +13,15 @@ class App extends Component {
     this.handleChange = (e) => {
       this.setState({value: e.target.value})
     }
+
+    this.getMarkup = () => {
+      return {__html: this.state.value}
+    }
   }
 
   render () {
     return (
-      <MarkdownEditor value={this.state.value} handleChange={this.handleChange} />
+      <MarkdownEditor value={this.state.value} handleChange={this.handleChange} getMarkup={this.getMarkup} />
     )
   }
 }
