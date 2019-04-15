@@ -7,6 +7,7 @@ import './css/style.css'
 const MarkdownEditor = ({value, handleChange, getMarkup}) => {
   return (
     <div className='editor'>
+      <button onClick={() => localStorage.setItem('md', value)}>Salvar</button>
       <textarea value={value} onChange={handleChange} autoFocus />
 
       <div className='view' dangerouslySetInnerHTML={getMarkup()} />

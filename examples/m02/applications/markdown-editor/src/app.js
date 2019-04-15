@@ -9,7 +9,7 @@ import './css/style.css'
 import('highlight.js').then((hljs) => {
   marked.setOptions({
     highlight: (code, lang) => {
-      if(lang && hljs.getLanguage(lang)) {
+      if (lang && hljs.getLanguage(lang)) {
         return hljs.highlight(lang, code).value
       }
       return hljs.highlightAuto(code).value
@@ -29,6 +29,11 @@ class App extends Component {
     this.getMarkup = () => {
       return {__html: marked(this.state.value)}
     }
+  }
+
+  componentDidMount () {
+    const value = localStorage.getItem('md')
+    this.setState({value})
   }
 
   render () {
