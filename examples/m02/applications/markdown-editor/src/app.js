@@ -40,6 +40,15 @@ class App extends Component {
     this.setState({value})
   }
 
+  componentDidUpdate () {
+    clearInterval(this.timer)
+    this.timer = setTimeout(this.handleSave, 1000)
+  }
+
+  componentWillUnmount () {
+    clearInterval(this.timer)
+  }
+
   render () {
     return (
       <MarkdownEditor value={this.state.value} handleChange={this.handleChange} handleSave={this.handleSave} getMarkup={this.getMarkup} />
