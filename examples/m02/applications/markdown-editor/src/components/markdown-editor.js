@@ -5,10 +5,10 @@ import Header from './markdown-editor-header'
 
 import '../css/style.css'
 
-const MarkdownEditor = ({value, handleChange, handleSave, getMarkup}) => {
+const MarkdownEditor = ({value, isSaving, handleChange, getMarkup}) => {
   return (
     <section className='editor'>
-      <Header onSave={handleSave} />
+      <Header isSaving={isSaving} />
       <textarea value={value} onChange={handleChange} autoFocus />
       <div className='view' dangerouslySetInnerHTML={getMarkup()} />
     </section>
@@ -17,8 +17,8 @@ const MarkdownEditor = ({value, handleChange, handleSave, getMarkup}) => {
 
 MarkdownEditor.propTypes = {
   value: PropTypes.string.isRequired,
+  isSaving: PropTypes.bool.isRequired,
   handleChange: PropTypes.func.isRequired,
-  handleSave: PropTypes.func.isRequired,
   getMarkup: PropTypes.func.isRequired
 }
 
