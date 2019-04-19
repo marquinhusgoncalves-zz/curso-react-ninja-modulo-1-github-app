@@ -41,6 +41,11 @@ class App extends Component {
       }
     }
 
+    this.handleCreate = () => {
+      this.setState({ value: '' })
+      this.textarea.focus()
+    }
+
     this.handleRemove = () => {
       localStorage.removeItem('md')
       this.setState({value: ''})
@@ -48,6 +53,10 @@ class App extends Component {
 
     this.getMarkup = () => {
       return {__html: marked(this.state.value)}
+    }
+
+    this.textareaRef = (node) => {
+      this.textarea = node
     }
   }
 
@@ -71,9 +80,11 @@ class App extends Component {
         value={this.state.value}
         isSaving={this.state.isSaving}
         handleChange={this.handleChange}
+        handleCreate={this.handleCreate}
         handleRemove={this.handleRemove}
         handleSave={this.handleSave}
-        getMarkup={this.getMarkup} />
+        getMarkup={this.getMarkup}
+        textareaRef={this.textareaRef} />
     )
   }
 }
