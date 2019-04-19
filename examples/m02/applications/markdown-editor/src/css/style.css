@@ -37,7 +37,6 @@ body {
 .editor-header .save-message {
   align-items: center;
   color: #fff;
-  background: green;
   display: flex;
   font: 15px sans-serif;
   margin: 0;
