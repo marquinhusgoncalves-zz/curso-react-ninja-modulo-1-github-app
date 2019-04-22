@@ -7,11 +7,11 @@ import Files from './files'
 
 import '../../css/style.css'
 
-const MarkdownEditor = ({value, handleChange, getMarkup, textareaRef, ...props}) => {
+const MarkdownEditor = ({value, handleChange, getMarkup, textareaRef, files, handleOpenFile, ...props}) => {
   return (
     <section className='editor'>
       <Header {...props} />
-      <Files />
+      <Files files={files} handleOpenFile={handleOpenFile} />
       <textarea value={value} onChange={handleChange} autoFocus ref={textareaRef} />
       <div className='view' dangerouslySetInnerHTML={getMarkup()} />
     </section>
