@@ -7,10 +7,11 @@ import SaveMessage from 'components/save-message'
 
 import '../../css/style.css'
 
-const Header = ({ title, isSaving, handleCreate, handleRemove }) => {
+const Header = ({ title, isSaving, handleCreate, handleRemove, handleChange }) => {
   return (
     <header className='editor-header'>
-      <input type='text' value={title} />
+      <input type='text' value={title} onChange={handleChange('title')} placeholder='Sem título' />
+
       <SaveMessage isSaving={isSaving} />
 
       <Button onClick={handleCreate} kind='success'>
