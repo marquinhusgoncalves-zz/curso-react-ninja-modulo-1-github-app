@@ -7,18 +7,19 @@
   transition: all 0.25s ease-in-out;
 }
 
-.button.success {
-  background: green;
-}
-
-.button.success:hover {
-  background: darkgreen;
-}
-
-.button.danger {
+.button.-danger {
   background: red;
 }
 
-.button.danger:hover {
+.button.-danger:hover {
   background: darkred;
 }
+
+.button.-success {
+  background: green;
+}
+
+.button.-success:hover {
+  background: darkgreen;
+}
+

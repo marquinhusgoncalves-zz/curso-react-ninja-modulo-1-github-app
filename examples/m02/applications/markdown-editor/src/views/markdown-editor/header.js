@@ -12,10 +12,10 @@ const Header = ({ isSaving, handleCreate, handleRemove }) => {
     <header className='editor-header'>
       <SaveMessage isSaving={isSaving} />
 
-      <Button onClick={handleCreate} kind='success'>
+      <Button onClick={handleCreate} kind='success'>
         Criar novo
       </Button>
-      <Button onClick={handleRemove} kind='danger'>
+      <Button onClick={handleRemove} kind='danger'>
         Remover
       </Button>
     </header>
